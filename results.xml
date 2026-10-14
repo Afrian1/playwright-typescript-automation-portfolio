@@ -1,0 +1,134 @@
+<testsuites id="" name="" tests="5" failures="1" skipped="0" errors="3" time="34.928629">
+<testsuite name="login.spec.ts" timestamp="2026-10-14T07:48:13.986Z" hostname="chromium" tests="5" failures="1" skipped="0" time="118.741" errors="3">
+<testcase name="LOGIN-001 - Login sukses dengan credential valid" classname="login.spec.ts" time="32.271">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\login-LOGIN-001---Login-sukses-dengan-credential-valid-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\login-LOGIN-001---Login-sukses-dengan-credential-valid-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\login-LOGIN-001---Login-sukses-dengan-credential-valid-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded while setting up &quot;loginPage&quot;." type="Error">
+<![CDATA[  [chromium] › login.spec.ts:7:5 › LOGIN-001 - Login sukses dengan credential valid ────────────────
+
+    Test timeout of 30000ms exceeded while setting up "loginPage".
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-001---Login-sukses-dengan-credential-valid-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-001---Login-sukses-dengan-credential-valid-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\login-LOGIN-001---Login-sukses-dengan-credential-valid-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="LOGOUT-002 - User berhasil logout" classname="login.spec.ts" time="7.762">
+</testcase>
+<testcase name="LOGIN-003 - Login gagal dengan credential invalid" classname="login.spec.ts" time="33.326">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\login-LOGIN-003---Login-gagal-dengan-credential-invalid-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\login-LOGIN-003---Login-gagal-dengan-credential-invalid-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\login-LOGIN-003---Login-gagal-dengan-credential-invalid-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded while setting up &quot;loginPage&quot;." type="Error">
+<![CDATA[  [chromium] › login.spec.ts:46:5 › LOGIN-003 - Login gagal dengan credential invalid ──────────────
+
+    Test timeout of 30000ms exceeded while setting up "loginPage".
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-003---Login-gagal-dengan-credential-invalid-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-003---Login-gagal-dengan-credential-invalid-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\login-LOGIN-003---Login-gagal-dengan-credential-invalid-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="LOGIN-004 - Negative login: wrong_user" classname="login.spec.ts" time="32.151">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\login-LOGIN-004---Negative-login-wrong-user-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\login-LOGIN-004---Negative-login-wrong-user-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\login-LOGIN-004---Negative-login-wrong-user-chromium\error-context.md]]
+]]>
+</system-out>
+<error message="Test timeout of 30000ms exceeded while setting up &quot;loginPage&quot;." type="Error">
+<![CDATA[  [chromium] › login.spec.ts:64:7 › LOGIN-004 - Negative login: wrong_user ─────────────────────────
+
+    Test timeout of 30000ms exceeded while setting up "loginPage".
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-004---Negative-login-wrong-user-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-004---Negative-login-wrong-user-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\login-LOGIN-004---Negative-login-wrong-user-chromium\error-context.md
+]]>
+</error>
+</testcase>
+<testcase name="LOGIN-005 - Negative login: tomsmith" classname="login.spec.ts" time="13.231">
+<system-out>
+<![CDATA[
+[[ATTACHMENT|test-results\login-LOGIN-005---Negative-login-tomsmith-chromium\test-failed-1.png]]
+
+[[ATTACHMENT|test-results\login-LOGIN-005---Negative-login-tomsmith-chromium\video.webm]]
+
+[[ATTACHMENT|test-results\login-LOGIN-005---Negative-login-tomsmith-chromium\error-context.md]]
+]]>
+</system-out>
+<failure message="expect(locator).toContainText(expected) failed" type="expect.toContainText">
+<![CDATA[  [chromium] › login.spec.ts:64:7 › LOGIN-005 - Negative login: tomsmith › 2. Verifikasi pesan error 
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: getByText('Your username is invalid!')
+    Expected substring: "Your password is invalid!"
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toContainText" with timeout 5000ms
+      - waiting for getByText('Your username is invalid!')
+
+
+      72 |       await test.step('2. Verifikasi pesan error', async () => {
+      73 |         await expect(loginPage.errorMessage)
+    > 74 |           .toContainText(data.expectedError);
+         |            ^
+      75 |       });
+      76 |
+      77 |       await test.step('3. Pastikan login tidak berhasil', async () => {
+        at C:\Users\ramda\playwright-vscode-automation\tests\login.spec.ts:74:12
+        at C:\Users\ramda\playwright-vscode-automation\tests\login.spec.ts:72:7
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-005---Negative-login-tomsmith-chromium\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    attachment #2: video (video/webm) ──────────────────────────────────────────────────────────────
+    ..\test-results\login-LOGIN-005---Negative-login-tomsmith-chromium\video.webm
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: ..\test-results\login-LOGIN-005---Negative-login-tomsmith-chromium\error-context.md
+]]>
+</failure>
+</testcase>
+</testsuite>
+</testsuites>
