@@ -1,7 +1,8 @@
+
 import { defineConfig, devices } from '@playwright/test';
 
-const baseURL = process.env.BASE_URL || 'https://the-internet.herokuapp.com';
-
+const baseURL =
+  process.env.BASE_URL || 'https://the-internet.herokuapp.com';
 
 export default defineConfig({
   testDir: './tests',
@@ -10,20 +11,26 @@ export default defineConfig({
 
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
+
+  // Jalankan satu test pada satu waktu untuk troubleshooting
+  workers: 1,
 
   reporter: [
     ['list'],
     ['html', { open: 'never' }],
-    ['junit', { outputFile: 'results.xml' }]
+    ['junit', { outputFile: 'results.xml' }],
   ],
 
+  timeout: 60000,
+
   use: {
-    baseURL: 'https://the-internet.herokuapp.com',
+    baseURL,
     screenshot: 'only-on-failure',
-    trace: 'on-first-retry',
+    trace: 'on',
     video: 'retain-on-failure',
     headless: true,
+    navigationTimeout: 60000,
+    actionTimeout: 15000,
   },
 
   projects: [
@@ -31,15 +38,5 @@ export default defineConfig({
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
     },
-
-    // scalable tinggal uncomment
-    // {
-    //   name: 'firefox',
-    //   use: { ...devices['Desktop Firefox'] },
-    // },
-    // {
-    //   name: 'webkit',
-    //   use: { ...devices['Desktop Safari'] },
-    // },
   ],
 });
