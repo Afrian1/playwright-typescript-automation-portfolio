@@ -1,6 +1,7 @@
 
 import { test, expect } from '../fixtures/baseFixture';
 import { HomePage } from '../pages/home.page';
+import { LoginPage } from '../pages/login.page';
 import { validUser, invalidUser, loginData } from '../utils/testData';
 
 // Test Case 1: Login sukses
@@ -13,6 +14,11 @@ test('LOGIN-001 - Login sukses dengan credential valid', async ({ loginPage, pag
   );
 
   await test.step('1. Verifikasi redirect ke halaman secure', async () => {
+
+    const homePage = new HomePage(page);
+
+    await homePage.handleIntermittentPopup()
+
     await expect(page).toHaveURL(/\/secure/);
   });
 
@@ -31,12 +37,13 @@ test('LOGOUT-002 - User berhasil logout', async ({ loginPage }) => {
     validUser.password
   );
 
+  await test.step('1. Klik tombol Logout', async () => {
   const homePage = new HomePage(loginPage.page);
 
-  await expect(loginPage.page).toHaveURL(/\/secure/);
+  await homePage.handleIntermittentPopup();
 
-  await test.step('1. Klik tombol Logout', async () => {
-    await homePage.logout();
+  await homePage.logout();
+  
   });
 
   await test.step('2. Verifikasi kembali ke halaman login', async () => {
@@ -44,7 +51,7 @@ test('LOGOUT-002 - User berhasil logout', async ({ loginPage }) => {
   });
 
   await test.step('3. Verifikasi pesan logout', async () => {
-    await expect(homePage.successLogout)
+    await expect(loginPage.successLogout)
       .toContainText('You logged out of the secure area!');
   });
 });
@@ -58,6 +65,7 @@ test('LOGIN-003 - Login gagal dengan credential invalid', async ({ loginPage }) 
       invalidUser.username,
       invalidUser.password
     );
+    await loginPage.handleWarningMessage();
   });
 
   await test.step('2. Verifikasi pesan error', async () => {
@@ -79,6 +87,7 @@ for (const [index, data] of loginData.entries()) {
 
       await test.step('1. Submit login data', async () => {
         await loginPage.login(data.username, data.password);
+        await loginPage.handleWarningMessage();
       });
 
       await test.step('2. Verifikasi pesan error', async () => {
